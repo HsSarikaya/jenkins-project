@@ -165,7 +165,7 @@ resource "aws_iam_role" "ec2fulltoecr" {
 resource "aws_instance" "docker-machine-leader-manager" {
   ami             = "ami-0a8b4cd432b1c3063"
   instance_type   = "t2.micro"
-  key_name        = ".first_key"
+  key_name        = "first_key"
   root_block_device {
       volume_size = 16
   }  
@@ -183,7 +183,7 @@ resource "aws_instance" "docker-machine-leader-manager" {
 resource "aws_instance" "docker-machine-managers" {
   ami             = "ami-0a8b4cd432b1c3063"
   instance_type   = "t2.micro"
-  key_name        = ".first_key"
+  key_name        = "first_key"
   //  Write your pem file name
   security_groups = ["oliver-docker-swarm-sec-gr"]
   iam_instance_profile = aws_iam_instance_profile.ec2ecr-profile.name
@@ -200,7 +200,7 @@ resource "aws_instance" "docker-machine-managers" {
 resource "aws_instance" "docker-machine-workers" {
   ami             = "ami-0a8b4cd432b1c3063"
   instance_type   = "t2.micro"
-  key_name        = ".first_key"
+  key_name        = "first_key"
   //  Write your pem file name
   security_groups = ["oliver-docker-swarm-sec-gr"]
   iam_instance_profile = aws_iam_instance_profile.ec2ecr-profile.name
